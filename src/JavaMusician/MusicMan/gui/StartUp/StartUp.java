@@ -45,7 +45,7 @@ public class StartUp {
 	/**
 	 * 右上角的菜单按钮
 	 */
-	static JLabel mMenu=new JLabel(new ImageIcon("res/drawable/Menu.png"));
+	//static JLabel mMenu=new JLabel(new ImageIcon("res/drawable/Menu.png"));
 	
 	/**
 	 * 连接演奏按钮的线
