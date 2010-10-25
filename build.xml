@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project default="dist" name="Project Argon">
    <description>StartUp</description>
-   <property name="srcDir" location="src/JavaMusician/MusicMan/gui/StartUp"/>
+   <property name="srcDir" location="src"/>
    <property name="buildDir" location="bin"/>
    <property name="distDir" location="dist"/>
    <target name="all" depends="clean , init , compile">
@@ -11,7 +11,7 @@
       <mkdir dir="${distDir}"/>
    </target>
    <target name="compile" depends="init">
-      <javac classpath="." srcdir="${srcDir}" destdir="${buildDir}"/>
+      <javac srcdir="${srcDir}" destdir="${buildDir}"/>
    </target>
    <target name="dist" depends="compile">
       <jar destfile="${distDir}/package-${DSTAMP}.jar" basedir="${buildDir}">
