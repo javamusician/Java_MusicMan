@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="wh.MusicWorks"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <application android:icon="@drawable/icon" android:label="乐在掌中">
+        
+        <activity android:name=".GreetingScene"
+        		android:windowBackground="@null"
+                android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".MusicPlayer.MusicListActivity"
+                  android:label="乐在掌中">
+        </activity>
+		
+	    <activity android:name=".YueZaiZhangZhong" 
+	    	android:windowBackground="@null" 
+	   		android:screenOrientation="portrait">
+	    </activity>
+	    
+	    <activity android:name=".Instrument.Metronome.MetronomeRunner" 
+	    	android:windowBackground="@null" 
+	    	android:screenOrientation="portrait"/>
+	    	
+	    <activity android:name=".Instrument.Guitar.GuitarRunner" 
+		    android:windowBackground="@null" 
+		    android:screenOrientation="portrait"/>
+		    
+	    <activity android:name=".Replay.ReplayRunner" 
+		    android:windowBackground="@null" 
+		    android:screenOrientation="portrait"/>
+		
+		<activity android:name=".Instrument.InstrumentSwitch" 
+		    android:windowBackground="@null" 
+		    android:screenOrientation="portrait"/>
+	    
+		<receiver 
+	    	android:name=".MusicPlayer.MediaPlayerAppWidget"> 
+			<intent-filter> 
+	    		<action android:name="android.appwidget.action.APPWIDGET_UPDATE"/> 
+	    	</intent-filter> 
+	    		<meta-data 
+	    		android:name="android.appwidget.provider" 
+	    		android:resource="@xml/info"/> 
+	   </receiver>
+	   
+    	<receiver 
+    	android:name=".MusicPlayer.MediaPlayerControlReceiver"> 
+			<intent-filter> 
+	    		<action android:name="PLAY_BUTTON_PRESS"/> 
+	    		<action android:name="STOP_BUTTON_PRESS"/> 
+	    		<action android:name="NEXT_BUTTON_PRESS"/> 
+	    	</intent-filter> 
+   		</receiver>
+	   
+	</application>
+    <uses-sdk android:minSdkVersion="5" />
+
+<uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+
+</manifest> 

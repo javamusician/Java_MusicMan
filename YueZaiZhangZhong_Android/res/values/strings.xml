@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, ExampleService!</string>
+    <string name="app_name">乐在掌中</string>
+</resources>
