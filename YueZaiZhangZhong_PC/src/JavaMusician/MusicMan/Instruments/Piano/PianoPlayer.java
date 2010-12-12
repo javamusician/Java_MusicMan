@@ -2,11 +2,8 @@ package JavaMusician.MusicMan.Instruments.Piano;
 
 import java.awt.event.*;
 import javax.swing.*;
-
 import JavaMusician.MusicMan.MIDIPlayer.MIDIPlayer;
-
 import wh.XMLParser.XMLParser;
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
