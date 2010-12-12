@@ -1,1 +1,1 @@
-﻿YueZaiZhangZhong_Android放置的是Android端的工程代码，YueZaiZhangZhong_PC放置的是PC端的工程代码。
+﻿YueZaiZhangZhong_Android放置的是Android端的工程代码，YueZaiZhangZhong_PC放置的是PC端的工程代码。YueZaiZhangZhong_Android.apk是Android端的可执行文件。
