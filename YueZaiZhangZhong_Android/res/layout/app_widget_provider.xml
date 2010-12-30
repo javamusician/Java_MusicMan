@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal"
+  android:gravity="center"
+  android:background="@drawable/btn_music_normal">
+  <LinearLayout
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:orientation="vertical"
+  	android:gravity="top"
+  	android:layout_marginLeft="20px"
+  	>
+	  <TextView
+	  	android:id="@+id/currentplayingfilename"
+	  	android:layout_width="200px"
+	  	android:layout_height="60px"
+	  	android:gravity="center"
+	  	android:text="No music is playing"
+	  	/>
+	  <ProgressBar
+	  	android:id="@+id/playingprogress"
+	  	android:layout_width="200px"
+	  	android:layout_height="10px"
+	  	style="?android:attr/progressBarStyleHorizontal"
+	  	/>
+  </LinearLayout>
+  	  <ImageView
+	  	android:id="@+id/playbutton"
+	  	android:layout_width="100px"
+	  	android:layout_height="100px"
+		android:src="@drawable/ic_appwidget_music_play"
+	  	android:gravity="center"
+	  	/>
+	  <ImageView
+	  	android:id="@+id/stopbutton"
+	  	android:layout_width="100px"
+	  	android:layout_height="100px"
+		android:src="@drawable/ic_appwidget_music_stop"
+	  	android:gravity="center"
+	  	android:layout_marginRight="10px"
+	  	/>
+</LinearLayout>

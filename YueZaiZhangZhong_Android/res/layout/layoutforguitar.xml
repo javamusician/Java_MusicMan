@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <wh.MusicWorks.Instrument.Guitar.GuitarView
+    android:id="@+id/guitarview"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    />
+    <CheckBox
+    android:id="@+id/beginrecord"
+    android:layout_x="0px"
+    android:layout_y="0px"
+    android:layout_width="170px"
+    android:layout_height="174px"
+    android:button="@drawable/beginrecord"
+    />
+</AbsoluteLayout>

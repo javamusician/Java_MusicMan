@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<project default="dist" name="Project Argon">
+   <description>StartUp</description>
+   <property name="srcDir" location="src/JavaMusician/MusicMan/gui/StartUp"/>
+   <property name="buildDir" location="bin"/>
+   <property name="distDir" location="dist"/>
+   <target name="all" depends="clean , init , compile">
+   </target>
+   <target name="init">
+      <tstamp/>
+      <mkdir dir="${distDir}"/>
+   </target>
+   <target name="compile" depends="init">
+      <javac classpath="." srcdir="${srcDir}" destdir="${buildDir}"/>
+   </target>
+   <target name="dist" depends="compile">
+      <jar destfile="${distDir}/package-${DSTAMP}.jar" basedir="${buildDir}">
+        <manifest>
+          <attribute name="Built-By" value="${user.name}"/>
+          <attribute name="Main-Class" value="package.Main"/>
+        </manifest>
+      </jar>
+      <jar destfile="${distDir}/package-src-${DSTAMP}.jar" basedir="${srcDir}"/>
+   </target>
+   <target name="clean">
+     <delete dir="${buildDir}/JavaMusician/MusicMan/gui"/>
+     <delete dir="${distDir}"/>
+   </target>
+</project>
+
