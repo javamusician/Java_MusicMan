@@ -162,6 +162,10 @@ public class Controller extends JFrame implements Runnable{
 	 */
 	int key=0;
 	
+	public int getKey() {
+		return key;
+	}
+
 	/**
 	 * 判断在没有按键按下的情况下，哪个音符到达临界状态，并将其删除
 	 */

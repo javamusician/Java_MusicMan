@@ -50,7 +50,7 @@ abstract public class AutoComposer {
 		initializeInstrument(instrument);
 		initializeMusicLength(length);
 		initializeHighTide(highTide);
-		initializeMildToWid(mildToWild);
+		initializeMildToWild(mildToWild);
 		initializeFocusNote();
 		initializeNoteStrength();
 	}
@@ -71,7 +71,7 @@ abstract public class AutoComposer {
 		setFocusNote(focusNote);
 	}
 
-	private void initializeMildToWid(int mildToWild) {
+	private void initializeMildToWild(int mildToWild) {
 		setMildToWild(mildToWild);
 	}
 
@@ -123,7 +123,7 @@ abstract public class AutoComposer {
 	 */
 	private void setMildToWild(int mildToWild) {
 		//设定乐曲的平缓和急促的程度
-		mMildToWild = mildToWild;
+		mMildToWild = mildToWild%32;
 	}
 
 	/**

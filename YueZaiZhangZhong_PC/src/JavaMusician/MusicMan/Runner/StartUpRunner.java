@@ -7,6 +7,7 @@ public class StartUpRunner {
 	 * 测试使用的main函数
 	 */
 	public static void main(String[] args){
+		@SuppressWarnings("unused")
 		StartUp su=new StartUp("乐在掌中");
 	}
 }

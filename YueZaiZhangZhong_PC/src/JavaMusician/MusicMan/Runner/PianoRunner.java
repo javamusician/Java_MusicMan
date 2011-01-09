@@ -1,4 +1,4 @@
-﻿package JavaMusician.MusicMan.Runner;
+package JavaMusician.MusicMan.Runner;
 
 import javax.swing.JFrame;
 import JavaMusician.MusicMan.Instruments.Piano.PianoPlayer;

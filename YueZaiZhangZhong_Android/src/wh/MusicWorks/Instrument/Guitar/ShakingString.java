@@ -44,6 +44,7 @@ public class ShakingString{
 		mTimes=0;
 		mPaint=new Paint();
 		mPaint.setColor(Color.WHITE);
+		mDifficulty=0;
 	}
 	
 	public int getDifficulty(){

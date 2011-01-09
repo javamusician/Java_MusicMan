@@ -103,8 +103,8 @@ public class MusicListActivity extends Activity {
 	}
 	
 	private void initializeUI(SharedPreferences setting) {
-		initializePlayButton();
 		initializeMusicSpinner();
+		initializePlayButton();
         initializeRedioGroup();
         initializeMusicListView();
         initializeFileAndDirectory(setting.getString("currentPath", mRootPath));

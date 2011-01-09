@@ -13,9 +13,14 @@ public class ReplayData implements Serializable{
 	public int mDataType;
 	public int mOperation;
 	public long mTime;
+	
 	public ReplayData(int dataType,int operation,long time){
 		mDataType=dataType;
 		mOperation=operation;
 		mTime=time;
+	}
+	
+	public String toString(){
+		return ""+mDataType+"/"+mOperation+"/"+mTime;
 	}
 }

@@ -76,5 +76,7 @@ public class testAutoComposer {
 		assert(18!=ac.getMildToWild());
 	}
 	
-	
+	public static void main(String args[]){
+		
+	}
 }

@@ -1,30 +1,128 @@
 <?xml version="1.0"?>
 <project default="dist" name="Project Argon">
    <description>StartUp</description>
-   <property name="srcDir" location="src/JavaMusician/MusicMan/gui/StartUp"/>
+   <property name="srcDir" location="src/JavaMusician/MusicMan"/>
    <property name="buildDir" location="bin"/>
-   <property name="distDir" location="dist"/>
-   <target name="all" depends="clean , init , compile">
+   <property name="reportDir" location="report"/>
+   <property name="testDir" location="test"/>
+   <property name="coverageDir" location="coverage"/>
+   <property name="emma.enabled" value="true" />
+   <path id="classpath.main">
+			<pathelement location="${buildDir}/JavaMusician/MusicMan" />
+	</path>
+
+   <path id="emma.lib">
+			<pathelement location="./lib/emma.jar" />
+			<pathelement location="./lib/emma_ant.jar" />
+	 </path>
+	 <taskdef resource="emma_ant.properties" classpathref="emma.lib" />
+   
+   <target name="all" depends="clean, init, compile_src, compile_test, instrument, test, gen_test_report, gen_coverage_report">
    </target>
+   
    <target name="init">
       <tstamp/>
-      <mkdir dir="${distDir}"/>
+      <mkdir dir="${reportDir}/test_report"/>
+      <mkdir dir="${reportDir}/coverage_report"/>
+      <mkdir dir="${coverageDir}"/>
    </target>
-   <target name="compile" depends="init">
-      <javac classpath="." srcdir="${srcDir}" destdir="${buildDir}"/>
+   
+   <target name="compile_src" depends="init">
+   		<javac classpath=".:./lib/XMLParser.jar" destdir="${buildDir}" debug="on">
+					<src path="${srcDir}" />
+			</javac>
+	 </target>		
+		
+	 <target name="compile_test" depends="compile_src">	
+			<javac classpath=".:./lib/junit.jar:${buildDir}" destdir="${buildDir}" debug="on">
+					<src path="${testDir}" />
+			</javac>
+			<copy todir="${buildDir}">
+					<fileset dir="${testDir}">
+							<exclude name="**/*.java" />
+					</fileset>
+			</copy>
    </target>
-   <target name="dist" depends="compile">
-      <jar destfile="${distDir}/package-${DSTAMP}.jar" basedir="${buildDir}">
-        <manifest>
-          <attribute name="Built-By" value="${user.name}"/>
-          <attribute name="Main-Class" value="package.Main"/>
-        </manifest>
-      </jar>
-      <jar destfile="${distDir}/package-src-${DSTAMP}.jar" basedir="${srcDir}"/>
+   
+   <target name="instrument" depends="compile_test">
+			<emma enabled="${emma.enabled}">
+					<instr instrpathref="classpath.main" destdir="${coverageDir}" metadatafile="${reportDir}/coverage_report/metadata.emma" merge="true">
+					</instr>
+			</emma>
+			<copy todir="${coverageDir}">
+					<fileset dir="${buildDir}/JavaMusician/MusicMan/">
+							<exclude name="**/*.java" />
+					</fileset>
+			</copy>
+	 </target>
+   
+   <target name="test" depends="instrument">
+			<junit printsummary="yes" haltonfailure="no" fork="true" showoutput="true">
+					<sysproperty key="emma.coverage.out.file" value="${reportDir}/coverage_report/coverage.emma" />
+					<classpath location="${coverageDir}" />
+					<classpath location="${buildDir}" />
+    			<classpath>
+    					<fileset dir="lib" includes="**/*.jar"/>
+    					<pathelement path="${buildDir}"/>
+    			</classpath>
+    			<formatter type="xml" />
+    			<batchtest todir="${reportDir}/test_report">
+    					<fileset dir="${buildDir}">
+    							<include name="**/test*.*"/>
+    					</fileset>
+    			</batchtest>
+			</junit>
    </target>
-   <target name="clean">
-     <delete dir="${buildDir}/JavaMusician/MusicMan/gui"/>
-     <delete dir="${distDir}"/>
-   </target>
+   
+   <target name="gen_test_report" depends="test">
+			<junitreport todir="${reportDir}/test_report">
+					<fileset dir="${reportDir}/test_report">
+							<include name="*" />
+					</fileset>
+					<report format="frames" todir="${reportDir}/test_report" />
+			</junitreport>
+	</target>
+	
+  <target name="gen_coverage_report" depends="gen_test_report">
+		  <emma>
+  				<merge outfile="${reportDir}/coverage_report/session.emma">
+    					<fileset dir="${reportDir}/coverage_report">
+     							<include name="*.emma" />
+    					</fileset>
+  	 			</merge>
+  	 	</emma>
+			<emma enabled="${emma.enabled}">
+					<report sourcepath="${srcDir}" sort="+block,+name,+method,+class" metrics="method:70,block:80,line:80,class:100">
+							<fileset dir="${reportDir}/coverage_report">
+									<include name="*.emma" />
+							</fileset>
+							<html outfile="${reportDir}/coverage_report/coverage.html" depth="method" columns="name,class,method,block,line" />
+					</report>
+			</emma>
+	</target>
+
+  <target name="clean">
+  		<delete dir="${buildDir}/JavaMusician/MusicMan/autoComposer"/>
+    	<delete dir="${buildDir}/JavaMusician/MusicMan/Controller"/>
+    	<delete dir="${buildDir}/JavaMusician/MusicMan/gui"/>
+   		<delete dir="${buildDir}/JavaMusician/MusicMan/Instruments"/>
+    	<delete dir="${buildDir}/JavaMusician/MusicMan/MediaPlayer"/>
+    	<delete dir="${buildDir}/JavaMusician/MusicMan/MIDIPlayer"/>
+    	<delete dir="${buildDir}/JavaMusician/MusicMan/Note"/>
+    	<delete dir="${buildDir}/JavaMusician/MusicMan/Panel"/>
+    	<delete dir="${buildDir}/JavaMusician/MusicMan/Parse"/>
+    	<delete dir="${buildDir}/JavaMusician/MusicMan/RecordPlay"/>
+    	<delete dir="${buildDir}/JavaMusician/MusicMan/Runner"/>
+    	<delete dir="${buildDir}/testAutoComposing"/>
+    	<delete dir="${buildDir}/testMediaPlaying"/>
+    	<delete dir="${buildDir}/testController"/>
+	    <delete dir="${buildDir}/testNote"/>
+    	<delete dir="${buildDir}/testParse"/>
+    	<delete dir="${buildDir}/testPianoPlaying"/>
+    	<delete dir="${buildDir}/testRecordAndTranslatePlaying"/>
+     	<delete dir="${reportDir}/test_report"/>
+     	<delete dir="${reportDir}/coverage_report"/>
+     	<delete dir="${coverageDir}"/>
+  </target>
 </project>
 

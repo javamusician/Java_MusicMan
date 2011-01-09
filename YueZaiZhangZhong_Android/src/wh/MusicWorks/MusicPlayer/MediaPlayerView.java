@@ -134,7 +134,6 @@ public class MediaPlayerView extends View{
 	}
 
 	public void stopRunning() {
-		// TODO Auto-generated method stub
 		mGameRunning=false;
 	}
 }

@@ -58,9 +58,10 @@
 	    	</intent-filter> 
    		</receiver>
 	   
+	<uses-library android:name="android.test.runner" />
 	</application>
+	<instrumentation android:targetPackage="wh.MusicWorks" android:label="Test New Activty" android:name="android.test.InstrumentationTestRunner"></instrumentation>
     <uses-sdk android:minSdkVersion="5" />
-
 <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
 
 </manifest> 

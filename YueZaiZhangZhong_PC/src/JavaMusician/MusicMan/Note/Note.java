@@ -48,7 +48,7 @@ public class Note {
 	 * 获取音符的时间点
 	 * @return mTick 音符的时间点
 	 */
-	public Long getTick()
+	public long getTick()
 	{
 		return mTick;
 	}

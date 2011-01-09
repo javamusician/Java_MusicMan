@@ -21,6 +21,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.TargetDataLine;
 
+@SuppressWarnings("serial")
 public class RecordPlay extends Frame {
 	class CaptureThread extends Thread {
 		// ÁÙÊ±Êý×é
@@ -218,6 +219,7 @@ public class RecordPlay extends Frame {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void showTheFigureOfSound(byte[] audioData) {
 		for(int i=0;i<audioData.length;i++){
 			for(int j=-20;j<audioData[i];j++)

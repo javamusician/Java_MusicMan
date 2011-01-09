@@ -1,7 +1,4 @@
-﻿package JavaMusician.MusicMan.MIDIPlayer;
-
-import java.io.FileOutputStream;
-import java.util.Scanner;
+package JavaMusician.MusicMan.MIDIPlayer;
 
 import javax.sound.midi.MidiEvent;
 import javax.sound.midi.MidiSystem;   
@@ -28,8 +25,6 @@ public class MIDIPlayer
             ShortMessage sh1=new ShortMessage();
             sh1.setMessage(144,Integer.parseInt(message),127);
             track1.add(new MidiEvent(sh1,1));
-            FileOutputStream out=new FileOutputStream("D:\\test.txt");
-            MidiSystem.write(sequence,MidiSystem.getMidiFileTypes()[1],out);
             sequencer.open();
             sequencer.setSequence(sequence);
             sequencer.setTempoInBPM(300);

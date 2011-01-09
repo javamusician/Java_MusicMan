@@ -1,0 +1,9 @@
+本文件描述了测试文档的所在位置以及与测试相关的代码、脚本文件的所在位置以及命名:
+(1)测试文档.所有的测试文档均在工程根目录下的命名为~test_docs的文件夹下.在该文件夹下,有四个文档,分别命名为
+		System&Integration Tests.docx
+		System&Integration Tests.pdf
+		Unit Tests.docx
+		Unit Tests.pdf
+System&Integration Tests.docx和System&Integration Tests.pdf的内容相同,均是系统以及集成测试文档.Unit Tests.docx和Unit Tests.pdf的内容相同,均是单元测试文档.提供这两种格式的文档主要是以防读者在打开文档的过程中会有软件不兼容的情况而导致无法阅读.
+(2)测试代码.Android端的测试代码在根目录下面的YueZaiZhangZhong_Android工程文件夹下的test文件夹里面.PC端的测试代码则在根目录下面的YueZaiZhangZhong_PC工程文件夹下的test文件夹里面.
+(3)自动构建,测试以及计算覆盖率脚本.在在根目录下面的YueZaiZhangZhong_PC工程文件夹下面,有一个xml文件命名为build.xml.该脚本在命令行的模式下,只需要输入"ant all"该命令,既可以完成整个项目的自动编译,测试以及计算覆盖率的工作.为了方便读者查看测试结果,我们在YueZaiZhangZhong_PC工程文件夹下面建立一个命名为report的文件夹.当脚本执行完毕之后,会自动在report文件夹里面建立一个test_report以及coverage_report的文件夹,里面有测试结果以及测试代码覆盖率的结果统计文件.读者可以很方便地在这些文件中查看JUnit测试以及Emma测试代码覆盖率的统计数据.同时,该脚本配合cruisecontrol,可以实现持续集成.

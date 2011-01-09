@@ -1,11 +1,9 @@
 package testAutoComposing;
 
 import java.util.ArrayList;
-
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
-
 import JavaMusician.MusicMan.autoComposer.AutoComposer;
 import JavaMusician.MusicMan.autoComposer.SmoothComposer;
 
@@ -60,5 +58,8 @@ public class testSmoothComposer {
 		int noteStrengthMin = findMinimun(mAutoComposer.getNoteStrength(), 1, 1000);
 		assert(noteStrengthMin<0);
 		assert(noteStrengthMax>127);
+	}
+	
+	public static void main(String args[]){
 	}
 }
