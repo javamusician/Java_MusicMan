@@ -8,4 +8,4 @@
 (7)~project文件夹放置project kickoff的文档.
 (8)~requirement_docs放置software requirement specification的文档.
 (9)~test_docs放置test的文档(具体请参见Test_Practices_List.txt的文字描述).
-(10)contributionForm.doc以及contributionForm.pdf内容相同,均是统计了组员对整个项目的贡献情况.
+(10)contributionForm.pdf统计了组员对整个项目的贡献情况.
